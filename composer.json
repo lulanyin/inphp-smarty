@@ -1,0 +1,19 @@
+{
+    "name": "lulanyin/smarty",
+    "description": "PHP Smarty模板引擎",
+    "keywords": [
+        "smarty",
+        "PHP模板引擎"
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "src/Smarty.class.php",
+            "src/SmartyBC.class.php"
+        ]
+    }
+}

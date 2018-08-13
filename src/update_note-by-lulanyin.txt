@@ -1,0 +1,5 @@
+update files:
+sysplugins:
+ smarty_internal_templatecompilerbase.php -- line 201,586,588~636
+ smarty_internal_smartytemplatecompiler.php -- line 131
+ smarty_internal_compilerbase.php -- line 164~172,184~353
