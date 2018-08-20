@@ -12,6 +12,7 @@
     "license": "MIT",
     "autoload": {
         "files": [
+            "src/Functions.php",
             "src/Smarty.class.php",
             "src/SmartyBC.class.php"
         ]
