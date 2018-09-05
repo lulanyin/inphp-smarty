@@ -32,7 +32,7 @@ function smarty_modifier_truncate($string, $length = 80, $etc = '...', $break_wo
     }
     if($middle=='mb' || $middle=='MB' || $break_words=='MB' || $break_words=='mb' || $etc=='mb' || $etc=='MB'){
         //等长中文混编截取
-        $newString = \Str\Str::truncate($string, $length);
+        $newString = mb_substr($string, 0, $length);
         if(strlen($newString)<strlen($string)){
             $string = $newString.($etc!='MB' && $etc!='mb' ? $etc : '...');
         }else{
