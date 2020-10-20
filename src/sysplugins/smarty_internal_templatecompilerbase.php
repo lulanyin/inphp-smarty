@@ -595,10 +595,10 @@ abstract class Smarty_Internal_TemplateCompilerBase
      */
     public function compileTagFromLibrary($tag, $args)
     {
-        if(!empty($tag))
+        if(!empty($tag) && defined('SMARTY_TAGS_PARSER'))
         {
             //diy library functions
-            $lib = SMARTY_DIR."../../TagsParse/Compiler";
+            $lib = SMARTY_TAGS_PARSER."/TagsParse/Compiler";
             $compiler_maker = $lib."/TagsMaker.php";
             $cache_compiler = $lib."/cache_smarty_internal_compile_{$tag}.php";
             if(!file_exists($cache_compiler))
