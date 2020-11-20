@@ -6,7 +6,7 @@
 
 ### 安装方法
 ```
-composer install lulanyin/smarty
+composer require lulanyin/smarty
 ```
 
 ### 使用方法
