@@ -598,18 +598,13 @@ abstract class Smarty_Internal_TemplateCompilerBase
         if(!empty($tag) && defined('SMARTY_TAGS_PARSER'))
         {
             //diy library functions
-            $lib = SMARTY_TAGS_PARSER."/TagsParse/Compiler";
-            $compiler_maker = $lib."/TagsMaker.php";
+            $lib = SMARTY_TAGS_PARSER."/Compiler";
             $cache_compiler = $lib."/cache_smarty_internal_compile_{$tag}.php";
             if(!file_exists($cache_compiler))
             {
-                if(file_exists($compiler_maker))
+                if(function_exists("autoCompileSmartyTag"))
                 {
-                    require_once $compiler_maker;
-                    if(function_exists("autoCompile"))
-                    {
-                        @autoCompile($tag);
-                    }
+                    @autoCompileSmartyTag($tag);
                 }
             }
             if(@require_once($cache_compiler))
