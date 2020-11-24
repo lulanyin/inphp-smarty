@@ -6,7 +6,7 @@
 
 ### 安装方法
 ```
-composer require lulanyin/smarty
+composer require inphp/smarty
 ```
 
 ### 使用方法
