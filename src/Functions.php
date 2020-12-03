@@ -90,6 +90,23 @@ function autoCompileSmartyTag($tag)
     file_put_contents($file,$template);
 }
 
+/**
+ * 临时数据
+ * Class SmartyTags
+ */
+class SmartyTags{
+
+    private static $tags = [];
+
+    public static function add($name, $value){
+        self::$tags[$name] = $value;
+    }
+
+    public static function get($name){
+        return isset(self::$tags[$name]) ? self::$tags[$name] : null;
+    }
+}
+
 if(!function_exists('insert_library')){
     /**
      * 引入自定义标签
@@ -105,6 +122,12 @@ if(!function_exists('insert_library')){
         if(is_file(SMARTY_TAGS_PARSER."/Tags/{$lib}.tag.php")){
             require_once SMARTY_TAGS_PARSER."/Tags/{$lib}.tag.php";
             return $functionName($param);
+        }else{
+            //从模块库中取
+            $tag = SmartyTags::get($lib);
+            if($tag instanceof Closure){
+                return $tag($param);
+            }
         }
         return "";
     }
